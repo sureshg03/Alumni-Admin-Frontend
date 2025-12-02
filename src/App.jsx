@@ -9,7 +9,7 @@ import AddDepartment from "./pages/AddDepartment";
 import ManageDepartment from "./pages/ManageDepartment";
 import ViewDegrees from './pages/ViewDegrees';
 import ViewStudents from './pages/ViewStudents';
-import Newsletter from "./pages/Newsletter";
+import Newsletter from "./pages/NewsLetter";
 import Surveys from "./pages/Surveys";
 import SuccessStories from './pages/SuccessStories';
 import Feedback from "./pages/Feedback";
