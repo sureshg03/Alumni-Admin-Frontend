@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiClient = axios.create({
+const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL ? `${import.meta.env.VITE_API_BASE_URL}/api/` : 'https://web-production-6135b.up.railway.app/api/',
   withCredentials: true,
   xsrfCookieName: 'csrftoken',
