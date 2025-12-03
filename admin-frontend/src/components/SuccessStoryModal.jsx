@@ -23,7 +23,7 @@ const SuccessStoryModal = ({ isOpen, onClose, story, onSave }) => {
     console.log('SuccessStoryModal useEffect triggered. Story:', story);
     const getCsrfToken = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/get-csrf-token/', {
+        const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/get-csrf-token/`, {
           withCredentials: true,
         });
         setCsrfToken(response.data.csrfToken);
@@ -162,7 +162,7 @@ const SuccessStoryModal = ({ isOpen, onClose, story, onSave }) => {
       console.log('Submitting form data:', formData, 'Images to delete:', imagesToDelete);
 
       if (story) {
-        await axios.put(`http://localhost:8000/api/success-stories/${story.id}/`, form, {
+        await axios.put(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/success-stories/${story.id}/`, form, {
           headers: {
             'Content-Type': 'multipart/form-data',
             'X-CSRFToken': csrfToken,
@@ -171,7 +171,7 @@ const SuccessStoryModal = ({ isOpen, onClose, story, onSave }) => {
         });
         console.log('Story updated successfully');
       } else {
-        await axios.post('http://localhost:8000/api/success-stories/', form, {
+        await axios.post(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/success-stories/`, form, {
           headers: {
             'Content-Type': 'multipart/form-data',
             'X-CSRFToken': csrfToken,

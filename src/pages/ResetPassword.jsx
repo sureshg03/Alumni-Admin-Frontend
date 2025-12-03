@@ -21,7 +21,7 @@ function ResetPassword({ email }) {
       return;
     }
     try {
-      const res = await axios.post("http://localhost:8000/api/reset_password/", {
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/reset_password/`, {
         email,
         password,
       });

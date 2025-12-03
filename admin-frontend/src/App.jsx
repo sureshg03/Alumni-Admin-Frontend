@@ -15,7 +15,7 @@ import SuccessStories from './pages/SuccessStories';
 import Feedback from "./pages/Feedback";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://localhost:8000";
+axios.defaults.baseURL = import.meta.env.VITE_API_BASE_URL || "https://web-production-6135b.up.railway.app";
 axios.defaults.withCredentials = true;
 
 function App() {

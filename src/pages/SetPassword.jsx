@@ -11,7 +11,7 @@ function SetPassword() {
       alert("Passwords do not match");
       return;
     }
-    await axios.post("http://localhost:8000/api/set-password/", {
+    await axios.post(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/set-password/`, {
       email,
       password,
     });

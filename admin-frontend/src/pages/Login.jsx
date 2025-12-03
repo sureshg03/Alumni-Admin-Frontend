@@ -38,7 +38,7 @@ function Login() {
     if (!validate()) return;
     console.log("Sending login request:", { email, password });
     try {
-      const loginRes = await axios.post("http://localhost:8000/api/login/", { email, password }, { withCredentials: true });
+      const loginRes = await axios.post(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/login/`, { email, password }, { withCredentials: true });
       console.log("Login response:", loginRes.data);
       if (loginRes.data.status === "success") {
         // Store email in localStorage

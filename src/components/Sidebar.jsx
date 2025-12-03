@@ -34,7 +34,7 @@ const Sidebar = () => {
     try {
       const userEmail = localStorage.getItem('userEmail');
       if (userEmail) {
-        await axios.post('http://localhost:8000/api/logout/', { email: userEmail }, {
+        await axios.post(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/logout/`, { email: userEmail }, {
           headers: { 'Content-Type': 'application/json' },
           withCredentials: true,
         });

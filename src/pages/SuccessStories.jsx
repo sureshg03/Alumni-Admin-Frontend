@@ -30,7 +30,7 @@ const SuccessStories = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get('http://localhost:8000/api/success-stories/', {
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/success-stories/`, {
         withCredentials: true,
       });
       console.log('Success stories response:', response.data);
@@ -58,7 +58,7 @@ const SuccessStories = () => {
   const handleConfirmAction = async () => {
     if (confirmAction === 'delete') {
       try {
-        await axios.delete(`http://localhost:8000/api/success-stories/${confirmStoryId}/delete/`, {
+        await axios.delete(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/success-stories/${confirmStoryId}/delete/`, {
           headers: {
             'X-CSRFToken': await getCsrfToken(),
           },
@@ -72,7 +72,7 @@ const SuccessStories = () => {
       }
     } else if (confirmAction === 'deleteAll') {
       try {
-        await axios.delete('http://localhost:8000/api/success-stories/delete-all/', {
+        await axios.delete(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/success-stories/delete-all/`, {
           headers: {
             'X-CSRFToken': await getCsrfToken(),
           },
@@ -92,7 +92,7 @@ const SuccessStories = () => {
 
   const getCsrfToken = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/api/get-csrf-token/', {
+      const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/get-csrf-token/`, {
         withCredentials: true,
       });
       return response.data.csrfToken;

@@ -51,7 +51,7 @@ function SetAdmin() {
     }
 
     try {
-      await axios.post("http://localhost:8000/api/create-admin/", {
+      await axios.post(`${import.meta.env.VITE_API_BASE_URL || 'https://web-production-6135b.up.railway.app'}/api/create-admin/`, {
         email,
         password,
       });
